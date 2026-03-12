@@ -1,6 +1,6 @@
 hey this is a shitty project , i wanted to try svelte so i tried couple of concept to and implemented this simple , shitty and very bad looking tood app. 
 
-i don't  why any one want to run  this   , if they want to they need to insall 
+i don't know  why any one want to run this   ,but by any chance  if they want to they need to insall 
 
 -node 
 -npm 
