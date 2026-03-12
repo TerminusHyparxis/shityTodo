@@ -4,13 +4,21 @@
 
   let todoText  = $state() ;
   let updateState  = $state() ;
+  let initialEdit  = $state(null);
   
 
   const addTodo = () => {
       if(todoText.trim().length>0){
-      todos.push({done: false,text: todoText });
+						 if((initialEdit) != null){
+									todos[initialEdit].text = todoText ;
+								 initialEdit = null;
+						   todoText = '';
+								}
+							else{
+								todos.push({done: false,text: todoText });
+								}
+						 todoText = '';
     }
-    todoText = '';
   }
 
   const deleteTodo = (index) =>{
@@ -20,10 +28,10 @@
   const updateTodo = (index) =>{
     todoText=todos[index].text;
     updateState.focus();
+				initialEdit = index;
+
   }
     
-    
-  
 </script>
 
 <h1>Welcome to pukar ojha's shit</h1>
@@ -38,11 +46,11 @@
 
   <ul>
     {#each todos as todo,index}
-      <li>
-	<button onclick={()=>{updateTodo(index)}}>u</button>
-	<button onclick={()=>{deleteTodo(index)}}>x</button>
-	{todo.text}
-      </li>
+		<li>
+			<button onclick={()=>{updateTodo(index)}}>u</button>
+			<button onclick={()=>{deleteTodo(index)}}>x</button> 
+			{todo.text} 
+	</li>
 
     {/each}
   </ul>
